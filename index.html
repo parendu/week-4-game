@@ -1,0 +1,327 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Crstal Collections</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+<!-- Added link to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+<script src="./assets/javascript/game.js"></script>
+<!-- <nav class="navbar navbar-inverse"> -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+        
+         <a class="navbar-brand" style="font-size:24px">Parendu Parikh</a>
+    </div>
+    
+  </div>
+</nav>
+
+<!-- main container -->
+<div class="container-fluid text-center">    
+  <div class="row content aboutme">
+ 
+    <div class="col-sm-7 col-md-8 text-center"> 
+      <div class="row">
+        <div class="col-sm-12">
+           <h1>Crystal Collector</h1>
+           <div class="text-center">
+
+              <!-- Here we have our button with id random-button -->
+              <button id="start-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-play"></span></h1></button>
+              <button id="random-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-random"></span></h1></button>
+           </div>
+              <h1 class="text-center" id="random-number"></h1>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-3">
+           <div class="well" style="background-color: #080808">
+             <div class="text-center">
+
+              <div class="first-button">
+              <!-- <button id="first-button" class="btn btn-primary btn-lg"><h1><span class="glyphicon glyphicon-question-sign"></span></h1></button> -->
+              <img src="./assets/images/image-1.jpg" alt="image-1" id ="first-button" style="width:100px;height:100px;">
+                </div>
+           </div>
+              <!-- <h1 class="text-center" id="first-number"></h1> -->
+           </div>
+        </div>
+        <div class="col-sm-3">
+           <div class="well" style="background-color: #080808">
+             <div class="text-center">
+                
+              <!-- Here we have our button with id random-button -->
+              <img src="./assets/images/image-2.jpg" alt="image-2" id="second-button" style="width:100px;height:100px;">
+        
+           </div>
+              <!-- <h1 class="text-center" id="second-number"></h1>                                     -->
+           </div>
+        </div>
+        <div class="col-sm-3">
+           <div class="well" style="background-color: #080808">
+             <div class="text-center">
+
+              <!-- Here we have our button with id random-button -->
+              <img src="./assets/images/image-3.jpg" alt="image-3" id="third-button" style="width:100px;height:100px;">
+           </div>
+              <!-- <h1 class="text-center" id="third-number"></h1> -->
+           </div>
+        </div>
+        <div class="col-sm-3">
+           <div class="well" style="background-color: #080808">
+             <div class="text-center">
+
+              <!-- Here we have our button with id random-button -->
+              <img src="./assets/images/image-4.jpg" alt="image-4" id="fourth-button" style="width:100px;height:100px;">
+        
+           </div>
+              <!-- <h1 class="text-center" id="fourth-number"></h1>                                    -->
+           </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12">
+           <h1>Total</h1>
+            <h2 class="text-center" id="total-number"></h2>
+            <!-- <h3>Total: <span id="total-number" text-align="center"></span></h3></h3> -->
+           
+        </div>
+      </div>
+    </div>
+  
+  <!-- sidenav for connect me -->
+<div class="col-sm-4 col-md-3 sidenav">
+  
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="well" style="background-color: #080808">
+       <h3>Scores</h3>
+        <hr>
+        <h3>Wins: <span id="wins" text-align="left" color="green"></span></h3>
+        <h3>Losses: <span id="losses" color="red"></span></h3>
+      </div>
+      </div>
+    <div class="col-sm-12">
+      <div class="well" style="background-color: #080808">
+       <!-- <h2><span id="result" text-color="blue"></span></h2> -->
+      <p id="output" class="output"></p>
+      </div>
+     </div>
+</div>
+  <div class="col-sm-1 col-md-1" background-color="#323333">
+    </div>
+      
+   </div>  <!-- row ending -->
+</div> <!-- container ending -->
+
+	<script src="./assets/javascript/game.js"></script>
+   <script type="text/javascript">
+
+  var randomNum = "";
+  var firstNum = "";
+  var secondNum = "";
+  var thirdNum = "";
+  var fourthNum = "";
+  var totalSum = "";
+  var wins = "";
+  var losses = "";
+     messages = {
+                win: "You win! Play again",
+                lose: "You lost! Play again",
+                Play: 'Play again...',
+                };
+
+    $(document).ready(function() {
+
+      // Create random number between 19 to 120 on clicking random-button add content to the random-number div.
+      // ...
+      // debugger
+         $("#start-button").on("click", function(){
+         
+                 var random = Math.floor(Math.random() * (120 - 19 + 1) ) + 19;  
+                 randomNum = random;
+                 console.log(totalSum);
+                 totalSum = 0;
+                  $("#output").text("");
+                  $("#total-number").text(totalSum);
+                  wins = 0;
+                  losses = 0;
+                 console.log("sum: "+ totalSum);
+
+                 $("#random-number").text(randomNum);
+                 $("#wins").text(wins);
+                 $("#losses").text(losses);
+                 
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 secondNum = random;          
+                 $("#second-number").text(secondNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 firstNum = random;          
+                 $("#first-number").text(firstNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 thirdNum = random;          
+                 $("#third-number").text(thirdNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 fourthNum = random;          
+                 $("#fourth-number").text(fourthNum);
+                 return firstNum;
+                 return secondNum;
+                 return thirdNum;
+                 return fourthNum;
+                 return random;
+
+      });
+         $("#random-button").on("click", function(){
+         
+                 var random = Math.floor(Math.random() * (120 - 19 + 1) ) + 19;  
+                 randomNum = random;
+                 console.log(totalSum);
+                 totalSum = 0; 
+                 $("#output").text("");
+                  $("#total-number").text(totalSum);
+                  console.log("sum: "+ totalSum);
+
+                 $("#random-number").text(randomNum);
+                 $("#wins").text(wins);
+                 $("#losses").text(losses);
+                 
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 secondNum = random;          
+                 $("#second-number").text(secondNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 firstNum = random;          
+                 $("#first-number").text(firstNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 thirdNum = random;          
+                 $("#third-number").text(thirdNum);
+
+                 var random = Math.floor(Math.random() * (12 - 1 + 1) ) + 1;  
+                 fourthNum = random;          
+                 $("#fourth-number").text(fourthNum);
+
+                 return firstNum;
+                 return secondNum;
+                 return thirdNum;
+                 return fourthNum;
+                 return random;
+
+      });              
+            $("#first-button").on("click", function(){
+                
+               
+                    firstNum += Number($(this).val());
+                    totalSum = Number(totalSum) + Number(firstNum);
+                    console.log(firstNum);
+                    console.log(totalSum);
+                    $("#total-number").text(totalSum);
+                console.log("random: "+ randomNum);
+                console.log("sum: "+ totalSum);
+             if (totalSum === randomNum) {
+                wins++
+                console.log("wins:" + wins);
+                $("#wins").text(wins);
+                output.innerHTML = messages.win;
+                output.classList.add('win');
+              }
+              else if (totalSum > randomNum) {
+                losses++
+                console.log("loss:" + losses);
+                $("#losses").text(losses);
+                output.innerHTML = messages.lose;
+                output.classList.add('lose');
+                } 
+                return totalSum;   
+             });
+
+             $("#second-button").on("click", function(){        
+                    secondNum += Number($(this).val());
+                    totalSum = Number(totalSum) + Number(secondNum);
+                    console.log(secondNum);
+                    console.log(totalSum);
+                    $("#total-number").text(totalSum);
+              if (totalSum === randomNum) {
+                wins++
+                console.log("wins:" + wins);
+                $("#wins").text(wins);
+                output.innerHTML = messages.win;
+                output.classList.add('win');
+              }
+              else if (totalSum > randomNum) {
+                losses++
+                console.log("loss:" + losses);
+                $("#losses").text(losses);
+                output.innerHTML = messages.lose;
+                output.classList.add('lose');
+                } 
+                return totalSum;
+             });
+             $("#third-button").on("click", function(){
+                    thirdNum += Number($(this).val());
+                    totalSum = Number(totalSum) + Number(thirdNum);
+                    console.log(thirdNum);
+                    console.log(totalSum);
+                    $("#total-number").text(totalSum);
+                if (totalSum === randomNum) {
+                  wins++
+                  console.log("wins:" + wins);
+                  $("#wins").text(wins);
+                  output.innerHTML = messages.win;
+                output.classList.add('win');
+              }
+              else if (totalSum > randomNum) {
+                  losses++
+                  console.log("loss:" + losses);
+                  $("#losses").text(losses);
+                  output.innerHTML = messages.lose;
+                output.classList.add('lose');
+                  } 
+                  return totalSum; 
+             });
+             $("#fourth-button").on("click", function(){
+                    fourthNum += Number($(this).val());
+                    totalSum = Number(totalSum) + Number(fourthNum);
+                    console.log(fourthNum);
+                    console.log(totalSum);
+                    $("#total-number").text(totalSum);
+                if (totalSum === randomNum) {
+                wins++
+                console.log("wins:" + wins);
+                $("#wins").text(wins);
+                output.innerHTML = messages.win;
+                output.classList.add('win');
+              }
+              else if (totalSum > randomNum) {
+                losses++
+                console.log("loss:" + losses);
+                $("#losses").text(losses);
+                output.innerHTML = messages.lose;
+                output.classList.add('lose');
+                } 
+                return totalSum;
+             }); 
+             // Remove message
+             setTimeout(function(){
+            $("#output").removeClass(output);
+            //....and whatever else you need to do
+            }, 3000);                      
+    });
+
+  </script>
+
+</body>
+</html>
