@@ -25,7 +25,7 @@
       padding-top: 20px;
       background-color: #323333;
       height: 100%;
-      color: #323333;
+      color: white;
     }
     
     /* Set black background color, white text and some padding */
@@ -52,16 +52,9 @@
       text-align: center;
      }
 
-   
- 
- /*old code*/
-/* * {
-    box-sizing: border-box;
-}*/
-/*body {
-    font-family: sans-serif;
-}*/
-/* Keep it simple - improvement would be to not display characters */
+h3 {
+  color: white;
+}
  .letter {
     display: inline-block;
     list-style: none;
@@ -70,6 +63,7 @@
     border-bottom: 1px solid black;
     text-align: center;
     color: white;
+}
     
 
 }
